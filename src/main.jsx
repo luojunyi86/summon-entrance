@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import {
   BadgeCheck,
   Bell,
+  Camera,
   CalendarDays,
   CheckCircle2,
   CircleAlert,
@@ -12,11 +13,13 @@ import {
   LayoutDashboard,
   Loader2,
   LogOut,
+  MessageCircle,
   Phone,
   Search,
   ShieldCheck,
   Ticket,
   Upload,
+  Video,
   XCircle,
 } from 'lucide-react'
 import './styles.css'
@@ -57,6 +60,35 @@ const ageOptions = [
   { value: 'minor', label: '未满 18 岁' },
 ]
 
+const notifyChannels = [
+  {
+    title: '微信群',
+    text: '活动通知',
+    action: '到前台扫码',
+    icon: MessageCircle,
+  },
+  {
+    title: '小红书',
+    text: '照片攻略',
+    action: '打开主页',
+    href: 'https://xhslink.com/m/9ZX7hmfOB9q',
+    icon: Camera,
+  },
+  {
+    title: '抖音',
+    text: '动作视频',
+    action: '打开主页',
+    href: 'https://v.douyin.com/t65jLV8zixI/',
+    icon: Video,
+  },
+  {
+    title: '约课 / 包场',
+    text: '教学咨询',
+    action: '联系前台',
+    icon: CalendarDays,
+  },
+]
+
 function SkateboardIcon({ size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="滑板" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,8 +115,11 @@ function Hero({ onStart, onAdmin }) {
         </div>
         <h1>SUMMON Skatepark 自助入场</h1>
         <div className="intro-card">
-          <p>扫码登记、签署免责、上传付款截图后生成入场凭证。</p>
-          <p>到门口报手机号或取票码，由工作人员核销后放行。</p>
+          <div className="intro-card-tab">入场提示</div>
+          <div className="intro-card-copy">
+            <p>扫码登记、签署免责、上传付款截图后生成入场凭证。</p>
+            <p>到门口报手机号或取票码，由工作人员核销后放行。</p>
+          </div>
         </div>
         <div className="hero-actions">
           <button type="button" className="primary-action" onClick={onStart}>
@@ -399,6 +434,7 @@ function Voucher({ order, onReset }) {
 
 function PublicApp({ tickets, onAdmin }) {
   const [createdOrder, setCreatedOrder] = useState(null)
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <Hero onStart={() => document.getElementById('entry')?.scrollIntoView({ behavior: 'smooth' })} onAdmin={onAdmin} />
@@ -430,11 +466,37 @@ function PublicApp({ tickets, onAdmin }) {
         </section>
 
         <footer className="footer-action">
-          <button type="button">
-            <Bell size={20} />
-            加入 SUMMON 滑板群 / 获取活动通知
-          </button>
-          <p>该按钮不影响入场；入场以后台核销结果为准。</p>
+          <div className="footer-action-head">
+            <span><Bell size={18} /> 活动通知</span>
+            <h2>关注 SUMMON 最新动态</h2>
+          </div>
+          <div className="notify-grid">
+            {notifyChannels.map((channel) => {
+              const Icon = channel.icon
+              const content = (
+                <>
+                  <div className="notify-icon"><Icon size={20} /></div>
+                  <div>
+                    <h3>{channel.title}</h3>
+                    <p>{channel.text}</p>
+                    <strong>{channel.action}</strong>
+                  </div>
+                </>
+              )
+              if (channel.href) {
+                return (
+                  <a className="notify-card" key={channel.title} href={channel.href} target="_blank" rel="noreferrer">
+                    {content}
+                  </a>
+                )
+              }
+              return (
+                <article className="notify-card" key={channel.title}>
+                  {content}
+                </article>
+              )
+            })}
+          </div>
         </footer>
       </section>
     </main>
