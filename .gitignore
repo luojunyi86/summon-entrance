@@ -25,6 +25,7 @@ pnpm-debug.log*
 .DS_Store
 .idea/
 .vscode/
+.codex/
 
 # Tool caches
 .vite/
