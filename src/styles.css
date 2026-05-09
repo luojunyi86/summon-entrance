@@ -370,7 +370,7 @@ h1 {
 
 .selected-payment-panel {
   margin-top: 18px;
-  padding: 22px;
+  padding: 18px;
   border: 1px solid rgba(39, 199, 255, 0.42);
   border-radius: var(--radius-lg);
   background:
@@ -381,8 +381,8 @@ h1 {
 
 .selected-payment-head {
   display: grid;
-  gap: 6px;
-  margin-bottom: 18px;
+  gap: 5px;
+  margin-bottom: 14px;
 }
 
 .selected-payment-head span,
@@ -396,13 +396,13 @@ h1 {
 .selected-payment-head h3 {
   margin: 0;
   color: #fff;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 950;
 }
 
 .selected-payment-head strong {
   color: #2fd0ff;
-  font-size: 46px;
+  font-size: 38px;
   line-height: 1;
   font-weight: 950;
 }
@@ -416,8 +416,8 @@ h1 {
 
 .payment-method-title {
   display: grid;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 5px;
+  margin-bottom: 12px;
 }
 
 .payment-method-grid {
@@ -427,7 +427,7 @@ h1 {
 }
 
 .payment-method-card {
-  padding: 20px;
+  padding: 16px;
   border: 1px solid var(--hairline);
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
@@ -438,21 +438,21 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .payment-method-head span {
   color: #f7fbff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 950;
 }
 
 .payment-method-head strong {
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 999px;
   background: #fff;
   color: #02060d;
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1;
   font-weight: 950;
 }
@@ -507,12 +507,12 @@ h1 {
 }
 
 .qr-box {
-  width: min(330px, 100%);
+  width: min(260px, 100%);
   aspect-ratio: 1;
   margin: 0 auto;
   display: grid;
   place-items: center;
-  border: 10px solid #fff;
+  border: 8px solid #fff;
   border-radius: var(--radius-lg);
   background: #fff;
   overflow: hidden;
@@ -800,11 +800,11 @@ h1 {
   }
 
   .selected-payment-panel {
-    padding: 18px;
+    padding: 14px;
   }
 
   .payment-method-card {
-    padding: 18px;
+    padding: 14px;
   }
 
   .payment-method-head {
@@ -813,7 +813,7 @@ h1 {
   }
 
   .qr-box {
-    width: min(310px, 100%);
+    width: min(230px, 100%);
   }
 
   .rules-list li {
