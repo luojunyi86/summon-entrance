@@ -133,7 +133,7 @@ function Hero() {
         </div>
         <button type="button" className="primary-action" onClick={() => document.getElementById('payment')?.scrollIntoView({ behavior: 'smooth' })}>
           <DoorOpen size={20} />
-          立即扫码入场
+          选择票种付款
         </button>
       </div>
     </section>
