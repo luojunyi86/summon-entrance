@@ -20,6 +20,7 @@ const tickets = [
     price: '¥10 / 人',
     amount: '¥10',
     detail: '含指定饮品一杯',
+    selectNote: '含饮品',
     icon: SkateboardIcon,
     requiresPayment: true,
   },
@@ -29,6 +30,7 @@ const tickets = [
     price: '¥5 / 人',
     amount: '¥5',
     detail: '凭有效学生证使用，不含饮品',
+    selectNote: '凭学生证',
     icon: GraduationCap,
     requiresPayment: true,
   },
@@ -38,6 +40,7 @@ const tickets = [
     price: 'FREE',
     amount: 'FREE',
     detail: '免费日仍需遵守场地规则',
+    selectNote: '周二免费',
     icon: CalendarDays,
     requiresPayment: false,
   },
@@ -167,6 +170,7 @@ function EntryPaymentSection() {
               <div>
                 <h3>{ticket.title}</h3>
                 <strong>{ticket.price}</strong>
+                <p>{ticket.selectNote}</p>
               </div>
             </button>
           )
