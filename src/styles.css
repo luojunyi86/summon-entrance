@@ -269,6 +269,12 @@ h1 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
+.ticket-select-card .price-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+
 .price-card h3 {
   margin: 0;
   color: #f7fbff;
@@ -300,16 +306,16 @@ h1 {
 .ticket-select-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 10px;
 }
 
 .ticket-select-card {
-  min-height: 188px;
-  padding: 22px;
+  min-height: 138px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 18px;
+  gap: 12px;
   border: 1px solid var(--hairline);
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
@@ -342,15 +348,15 @@ h1 {
 .ticket-select-card h3 {
   margin: 0;
   color: #f7fbff;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 950;
 }
 
 .ticket-select-card strong {
   display: block;
-  margin: 8px 0;
+  margin: 6px 0;
   color: #2fd0ff;
-  font-size: 36px;
+  font-size: 28px;
   line-height: 1;
   font-weight: 950;
 }
@@ -358,7 +364,8 @@ h1 {
 .ticket-select-card p {
   margin: 0;
   color: #b9c8d7;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .selected-payment-panel {
@@ -741,10 +748,14 @@ h1 {
 
   .price-grid,
   .payment-grid,
-  .ticket-select-grid,
   .payment-method-grid,
   .notify-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ticket-select-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .price-card {
@@ -761,7 +772,31 @@ h1 {
   }
 
   .ticket-select-card {
-    min-height: auto;
+    min-height: 112px;
+    padding: 12px 10px;
+    gap: 8px;
+    border-radius: var(--radius-md);
+  }
+
+  .ticket-select-card .price-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .ticket-select-card h3 {
+    font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .ticket-select-card strong {
+    margin: 5px 0;
+    font-size: 22px;
+  }
+
+  .ticket-select-card p {
+    font-size: 11px;
+    line-height: 1.3;
   }
 
   .selected-payment-panel {
