@@ -293,8 +293,182 @@ h1 {
   line-height: 1.65;
 }
 
-.payment-section {
+.entry-payment-section {
   scroll-margin-top: 18px;
+}
+
+.ticket-select-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.ticket-select-card {
+  min-height: 188px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(18px) saturate(1.18);
+  animation: ticketRise 0.62s var(--apple-ease) both;
+  animation-delay: calc(var(--ticket-index) * 90ms);
+  transition:
+    transform 240ms var(--apple-ease),
+    border-color 240ms var(--apple-ease),
+    background 240ms var(--apple-ease),
+    box-shadow 240ms var(--apple-ease);
+}
+
+.ticket-select-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(47, 208, 255, 0.72);
+}
+
+.ticket-select-card.is-selected {
+  border-color: #27c7ff;
+  background: linear-gradient(180deg, rgba(39, 199, 255, 0.2), rgba(255, 255, 255, 0.055));
+  box-shadow:
+    inset 0 0 0 2px rgba(39, 199, 255, 0.42),
+    0 20px 54px rgba(0, 0, 0, 0.25);
+}
+
+.ticket-select-card h3 {
+  margin: 0;
+  color: #f7fbff;
+  font-size: 21px;
+  font-weight: 950;
+}
+
+.ticket-select-card strong {
+  display: block;
+  margin: 8px 0;
+  color: #2fd0ff;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.ticket-select-card p {
+  margin: 0;
+  color: #b9c8d7;
+  line-height: 1.65;
+}
+
+.selected-payment-panel {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid rgba(39, 199, 255, 0.42);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(39, 199, 255, 0.16), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px) saturate(1.18);
+}
+
+.selected-payment-head {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.selected-payment-head span,
+.payment-method-title span {
+  color: #8ee2ff;
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.selected-payment-head h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 950;
+}
+
+.selected-payment-head strong {
+  color: #2fd0ff;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.selected-payment-head p,
+.payment-method-title p {
+  margin: 0;
+  color: #b9c8d7;
+  line-height: 1.65;
+}
+
+.payment-method-title {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.payment-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.payment-method-card {
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
+}
+
+.payment-method-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.payment-method-head span {
+  color: #f7fbff;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.payment-method-head strong {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: #02060d;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.free-entry-box {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid rgba(39, 199, 255, 0.42);
+  border-radius: var(--radius-md);
+  background: rgba(39, 199, 255, 0.1);
+}
+
+.free-entry-box strong {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 950;
+}
+
+.free-entry-box p {
+  margin: 0;
+  color: #b9c8d7;
+  line-height: 1.65;
 }
 
 .payment-panel {
@@ -567,6 +741,8 @@ h1 {
 
   .price-grid,
   .payment-grid,
+  .ticket-select-grid,
+  .payment-method-grid,
   .notify-grid {
     grid-template-columns: 1fr;
   }
@@ -580,6 +756,23 @@ h1 {
   }
 
   .payment-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ticket-select-card {
+    min-height: auto;
+  }
+
+  .selected-payment-panel {
+    padding: 18px;
+  }
+
+  .payment-method-card {
+    padding: 18px;
+  }
+
+  .payment-method-head {
     align-items: flex-start;
     flex-direction: column;
   }

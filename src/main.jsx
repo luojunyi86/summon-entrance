@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   BadgeCheck,
@@ -19,37 +19,43 @@ const tickets = [
     id: 'single',
     title: '单次入场',
     price: '¥10 / 人',
+    amount: '¥10',
     detail: '含指定饮品一杯',
     icon: SkateboardIcon,
+    requiresPayment: true,
   },
   {
     id: 'student',
     title: '学生票',
     price: '¥5 / 人',
+    amount: '¥5',
     detail: '凭有效学生证使用，不含饮品',
     icon: GraduationCap,
+    requiresPayment: true,
   },
   {
     id: 'free',
     title: '每周二免费',
     price: 'FREE',
+    amount: 'FREE',
     detail: '免费日仍需遵守场地规则',
     icon: CalendarDays,
+    requiresPayment: false,
   },
 ]
 
-const payments = [
+const paymentMethods = [
   {
-    title: '普通入场',
-    amount: '¥10',
+    id: 'wechat',
+    title: '微信支付',
     image: '/assets/wechat-qr.png',
-    alt: '普通入场收款码',
+    alt: '微信支付收款码',
   },
   {
-    title: '学生票',
-    amount: '¥5',
+    id: 'alipay',
+    title: '支付宝',
     image: '/assets/alipay-qr.png',
-    alt: '学生票收款码',
+    alt: '支付宝收款码',
   },
 ]
 
@@ -136,18 +142,30 @@ function Hero() {
   )
 }
 
-function TicketSection() {
+function EntryPaymentSection() {
+  const [selectedTicketId, setSelectedTicketId] = useState('single')
+  const selectedTicket = tickets.find((ticket) => ticket.id === selectedTicketId) || tickets[0]
+
   return (
-    <section className="section-block">
+    <section className="section-block entry-payment-section" id="payment">
       <div className="section-title">
-        <span>Ticket</span>
-        <h2>收费标准</h2>
+        <span>Entry Payment</span>
+        <h2>选择票种并扫码付款</h2>
       </div>
-      <div className="price-grid dynamic-ticket-grid">
+
+      <div className="ticket-select-grid">
         {tickets.map((ticket, index) => {
           const Icon = ticket.icon
+          const active = selectedTicketId === ticket.id
+
           return (
-            <article className="price-card ticket-card" style={{ '--ticket-index': index }} key={ticket.id}>
+            <button
+              type="button"
+              className={`ticket-select-card ${active ? 'is-selected' : ''}`}
+              style={{ '--ticket-index': index }}
+              key={ticket.id}
+              onClick={() => setSelectedTicketId(ticket.id)}
+            >
               <div className="price-icon">
                 <Icon size={24} />
               </div>
@@ -156,34 +174,48 @@ function TicketSection() {
                 <strong>{ticket.price}</strong>
                 <p>{ticket.detail}</p>
               </div>
-            </article>
+            </button>
           )
         })}
       </div>
-    </section>
-  )
-}
 
-function PaymentSection() {
-  return (
-    <section className="section-block payment-section" id="payment">
-      <div className="section-title">
-        <span>Payment</span>
-        <h2>扫码付款</h2>
-      </div>
-      <div className="payment-grid">
-        {payments.map((payment) => (
-          <article className="payment-panel" key={payment.title}>
-            <div className="payment-head">
-              <span>{payment.title} 收款码</span>
-              <strong>{payment.amount}</strong>
+      <div className="selected-payment-panel">
+        <div className="selected-payment-head">
+          <span>当前选择</span>
+          <h3>{selectedTicket.title}</h3>
+          <strong>{selectedTicket.amount}</strong>
+          <p>{selectedTicket.detail}</p>
+        </div>
+
+        {selectedTicket.requiresPayment ? (
+          <>
+            <div className="payment-method-title">
+              <span>请选择支付方式</span>
+              <p>请按当前票种金额付款，付款后保留微信 / 支付宝付款记录。</p>
             </div>
-            <div className="qr-box">
-              <img src={payment.image} alt={payment.alt} className="qr-image" />
+
+            <div className="payment-method-grid">
+              {paymentMethods.map((method) => (
+                <article className="payment-method-card" key={method.id}>
+                  <div className="payment-method-head">
+                    <span>{method.title}</span>
+                    <strong>{selectedTicket.amount}</strong>
+                  </div>
+                  <div className="qr-box">
+                    <img src={method.image} alt={method.alt} className="qr-image" />
+                  </div>
+                </article>
+              ))}
             </div>
-          </article>
-        ))}
+          </>
+        ) : (
+          <div className="free-entry-box">
+            <strong>无需付款</strong>
+            <p>周二免费入场。免费日仍需遵守场地规则，工作人员仍可能进行现场秩序提醒。</p>
+          </div>
+        )}
       </div>
+
       <div className="notice">
         <CircleAlert size={20} />
         <p>付款后请保留付款记录。工作人员在场时，可能随机查看当天付款记录。</p>
@@ -277,8 +309,7 @@ function App() {
           <BadgeCheck size={20} />
           <span>自助扫码付款后即可入场，请保留当天付款记录供随机抽查。</span>
         </div>
-        <TicketSection />
-        <PaymentSection />
+        <EntryPaymentSection />
         <ReminderSection />
         <RulesSection />
         <NotifyFooter />
