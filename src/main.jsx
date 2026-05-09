@@ -30,8 +30,8 @@ const tickets = [
     title: '学生票',
     price: '¥5 / 人',
     amount: '¥5',
-    detail: '凭有效学生证使用，不含饮品',
-    selectNote: '凭学生证',
+    detail: '18 岁以下凭有效学生证使用，不含饮品',
+    selectNote: '18岁以下',
     icon: GraduationCap,
     requiresPayment: true,
   },
@@ -133,7 +133,7 @@ function Hero() {
         <h1>SUMMON Skatepark 自助入场</h1>
         <div className="intro-card">
           <p>欢迎来到 SUMMON。</p>
-          <p>本场地采用半无人自助入场方式。进入滑板区域前，请先完成门票支付。</p>
+          <p>本场地采用自助入场方式。进入滑板区域前，请先完成门票支付。</p>
           <p>付款后请保留微信 / 支付宝付款记录，工作人员在场时可能随机抽查。</p>
         </div>
         <button type="button" className="primary-action" onClick={() => document.getElementById('payment')?.scrollIntoView({ behavior: 'smooth' })}>

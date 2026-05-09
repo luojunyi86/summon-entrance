@@ -505,7 +505,7 @@ h1 {
   display: grid;
   grid-template-columns: 58px 1fr;
   align-items: center;
-  min-height: 66px;
+  min-height: 68px;
   overflow: hidden;
 }
 
@@ -515,6 +515,7 @@ h1 {
   place-items: center;
   background: rgba(38, 199, 255, 0.14);
   color: #2fd0ff;
+  font-size: 18px;
   font-weight: 950;
 }
 
@@ -522,6 +523,7 @@ h1 {
   margin: 0;
   padding: 14px 18px;
   color: #eef7ff;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -756,6 +758,18 @@ h1 {
   }
 
   .rules-list li {
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 46px 1fr;
+    min-height: 58px;
+    border-radius: 22px;
+  }
+
+  .rules-list span {
+    font-size: 16px;
+  }
+
+  .rules-list p {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.45;
   }
 }
