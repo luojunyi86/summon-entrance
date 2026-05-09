@@ -9,6 +9,7 @@ import {
   DoorOpen,
   GraduationCap,
   MessageCircle,
+  ShieldCheck,
   Video,
 } from 'lucide-react'
 import './styles.css'
@@ -124,6 +125,10 @@ function Hero() {
       <div className="hero-content">
         <div className="brand-mark">
           <img src="/assets/summon-logo-complete.png" alt="SUMMON Skatepark" />
+        </div>
+        <div className="official-chip">
+          <ShieldCheck size={16} />
+          SUMMON 官方自助入场
         </div>
         <h1>SUMMON Skatepark 自助入场</h1>
         <div className="intro-card">
