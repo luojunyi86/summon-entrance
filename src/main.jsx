@@ -9,7 +9,6 @@ import {
   DoorOpen,
   GraduationCap,
   MessageCircle,
-  ShieldCheck,
   Video,
 } from 'lucide-react'
 import './styles.css'
@@ -123,10 +122,6 @@ function Hero() {
         <div className="brand-mark">
           <img src="/assets/summon-logo-complete.png" alt="SUMMON Skatepark" />
         </div>
-        <div className="official-chip">
-          <ShieldCheck size={16} />
-          半无人自助入场
-        </div>
         <h1>SUMMON Skatepark 自助入场</h1>
         <div className="intro-card">
           <p>欢迎来到 SUMMON。</p>
@@ -172,7 +167,6 @@ function EntryPaymentSection() {
               <div>
                 <h3>{ticket.title}</h3>
                 <strong>{ticket.price}</strong>
-                <p>{ticket.detail}</p>
               </div>
             </button>
           )
