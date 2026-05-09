@@ -191,7 +191,7 @@ function EntryPaymentSection() {
           <>
             <div className="payment-method-title">
               <span>请选择支付方式</span>
-              <p>请按当前票种金额付款，付款后保留微信 / 支付宝付款记录。</p>
+              <p>请选择微信或支付宝付款。付款金额需与当前选择票种一致，付款后请保留微信 / 支付宝付款记录。</p>
             </div>
 
             <div className="payment-method-grid">
@@ -211,7 +211,7 @@ function EntryPaymentSection() {
         ) : (
           <div className="free-entry-box">
             <strong>无需付款</strong>
-            <p>周二免费入场。免费日仍需遵守场地规则，工作人员仍可能进行现场秩序提醒。</p>
+            <p>周二免费入场，无需付款。免费日仍需遵守场地规则，工作人员可能进行现场抽查与秩序提醒。</p>
           </div>
         )}
       </div>
