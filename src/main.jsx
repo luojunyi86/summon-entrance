@@ -51,13 +51,13 @@ const paymentMethods = [
   {
     id: 'wechat',
     title: '微信支付',
-    image: '/assets/wechat-qr.png',
+    image: `${import.meta.env.BASE_URL}assets/wechat-qr.png`,
     alt: '微信支付收款码',
   },
   {
     id: 'alipay',
     title: '支付宝',
-    image: '/assets/alipay-qr.png',
+    image: `${import.meta.env.BASE_URL}assets/alipay-qr.png`,
     alt: '支付宝收款码',
   },
 ]
@@ -120,11 +120,11 @@ function SkateboardIcon({ size = 28 }) {
 function Hero() {
   return (
     <section className="hero">
-      <img src="/assets/summon-night.jpg" alt="SUMMON Skatepark 夜间场地" className="hero-image" />
+      <img src={`${import.meta.env.BASE_URL}assets/summon-night.jpg`} alt="SUMMON Skatepark 夜间场地" className="hero-image" />
       <div className="hero-overlay" />
       <div className="hero-content">
         <div className="brand-mark">
-          <img src="/assets/summon-logo-complete.png" alt="SUMMON Skatepark" />
+          <img src={`${import.meta.env.BASE_URL}assets/summon-logo-complete.png`} alt="SUMMON Skatepark" />
         </div>
         <div className="official-chip">
           <ShieldCheck size={16} />
