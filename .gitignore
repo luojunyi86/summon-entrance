@@ -26,3 +26,4 @@ pnpm-debug.log*
 # Tool caches
 .vite/
 .cache/
+.netlify/
